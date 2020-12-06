@@ -26,7 +26,7 @@ fun main(args: Array<String>) {
     }
 }
 
-private fun getScore(input: String, max: Int): Double {
+fun getScore(input: String, max: Int): Double {
     var score = 0.0
 
     for (i in 0 until max) {
