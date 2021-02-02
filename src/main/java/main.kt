@@ -6,23 +6,27 @@ import kotlin.math.abs
 import kotlin.math.pow
 
 fun main(args: Array<String>) {
-    if (args[0] == "gen") {
-        val random = Random()
-        val builder = StringBuilder()
-        for (i in 0..args[1].toInt()) {
-            builder.append(random.nextInt(2))
+    when(args[0]){
+        "gen"->{
+            val random = Random()
+            val builder = StringBuilder()
+            for (i in 0..args[1].toInt()) {
+                builder.append(random.nextInt(2))
+            }
+            println(builder.toString())
+            return
         }
-        println(builder.toString())
-        return
-    }
-
-    val inputStream = FileInputStream(args[0])
-    val scanner = Scanner(inputStream)
-    val max = args[1].toInt()
-    while (scanner.hasNextLine()) {
-        val input = scanner.nextLine()
-        val score = getScore(input, max)
-        println("score = $score")
+        "file" ->{
+            val inputStream = FileInputStream(args[1])
+            val scanner = Scanner(inputStream)
+            val max = args[2].toInt()
+            while (scanner.hasNextLine()) {
+                val input = scanner.nextLine()
+                val score = getScore(input, max)
+                println("score = $score")
+            }
+        }
+        
     }
 }
 
